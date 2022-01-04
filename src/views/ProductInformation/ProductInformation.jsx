@@ -5,10 +5,17 @@ import OpenbankLogo from "../../assets/img/key_openbank.png";
 import Step1 from "../../views/ProductInformation";
 import Step2 from "../../views/Form";
 import Step3 from "../../views/Feedback";
+import { Link } from "react-router-dom";
 
 const ProductInformation = () => {
   return (
     <div className="info">
+      <button
+        className="challenge"
+        onClick={() => (window.location.href = "/password-manager")}
+      >
+        Challenge
+      </button>
       <main className="info-content">
         <h1>
           Bienvenid@ al test de{" "}
