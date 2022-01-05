@@ -19,14 +19,6 @@
   width: 70%;
   position: relative;
   transition: all 5s ease-in-out;
-
-  &-header {
-    display: flex;
-    justify-content: center;
-    background-color: $secondary-color;
-    color: $white;
-  }
-
   &-footer {
     display: flex;
     justify-content: space-between;
