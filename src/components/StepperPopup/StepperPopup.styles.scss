@@ -24,18 +24,6 @@
     justify-content: space-between;
     border-top: 1px solid $baby-blue;
     padding-top: 10px;
-
-    :first-child {
-      color: $secondary-color;
-      background-color: transparent;
-      border: none;
-    }
-    :last-child {
-      background-color: $secondary-color;
-      color: $white;
-      border-radius: 1px;
-      width: 5rem;
-    }
   }
 }
 

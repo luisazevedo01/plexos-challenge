@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.styles.scss";
 
 const Header = (props) => {
@@ -7,10 +7,10 @@ const Header = (props) => {
   };
 
   return (
-    <div className="header">
+    <section className="header">
       <button onClick={() => (window.location.href = "/")}>Back</button>
       <button onClick={openGenerator}>Generate Password</button>
-    </div>
+    </section>
   );
 };
 

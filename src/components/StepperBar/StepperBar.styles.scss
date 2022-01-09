@@ -1,0 +1,55 @@
+@import "../../styles/base.scss";
+
+#progress {
+  position: relative;
+  margin: 10px 30% 10px 30%;
+}
+
+.progress-bar {
+  position: absolute;
+  background: $primary-color;
+  height: 5px;
+  top: 50%;
+  left: 2px;
+  z-index: 1;
+}
+
+#progress-num {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+#progress-num::before {
+  content: "";
+  background-color: lightgray;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  height: 5px;
+  width: 98%;
+}
+
+#progress-num .step {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: lightgray;
+  border-radius: 100%;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  color: $white;
+  z-index: 1;
+}
+#progress-num .step.active {
+  background-color: $secondary-color;
+  color: $white;
+}
+#progress-num .step.done{
+  background-color: $primary-color;
+  color: $white;
+}

@@ -1,15 +1,14 @@
 import React from "react";
-import "./ProductInformation.styles.scss";
+import "./ChallengeInformation.styles.scss";
 
 import OpenbankLogo from "../../assets/img/key_openbank.png";
-import Step1 from "../../views/ProductInformation";
+import Step1 from "../../views/ChallengeInformation";
 import Step2 from "../../views/Form";
 import Step3 from "../../views/Feedback";
-import { Link } from "react-router-dom";
 
-const ProductInformation = () => {
+const ChallengeInformation = () => {
   return (
-    <div className="info">
+    <section className="info">
       <button
         className="challenge"
         onClick={() => (window.location.href = "/password-manager")}
@@ -156,7 +155,7 @@ const ProductInformation = () => {
           dudas al correo que te han dado. =)
         </h4>
       </main>
-    </div>
+    </section>
   );
 };
-export default ProductInformation;
+export default ChallengeInformation;
