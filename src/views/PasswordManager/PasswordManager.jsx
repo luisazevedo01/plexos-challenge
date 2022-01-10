@@ -6,7 +6,6 @@ import "./PasswordManager.styles.scss";
 import { submitForm } from "../../services/api";
 import FeedBack from "../Feedback/FeedBack";
 import ProductInformation from "../ProductInfo/ProductInformation";
-//const FeedBack = React.lazy(() => import("../Feedback/FeedBack"));
 
 export default function PasswordManager() {
   const [generatorVisibility, setGeneratorVisibility] = useState(false);
@@ -36,6 +35,7 @@ export default function PasswordManager() {
   const onPopupClose = () => {
     setGeneratorVisibility(false);
     setPopupStep(0);
+    setSubmitResult("error");
   };
 
   return (
@@ -47,6 +47,7 @@ export default function PasswordManager() {
           onClose={onPopupClose}
           isLoading={isLoading}
           step={popupStep}
+          submitResult={submitResult}
         >
           <ProductInformation />
           <PasswordForm submitForm={submitPasswordForm} />

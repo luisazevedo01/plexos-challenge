@@ -11,7 +11,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-error-boundary": "^3.1.4",
-    "react-i18next": "^10.12.5",
+    "react-i18next": "^10.13.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "3.1.1",
@@ -19,7 +19,7 @@
     "redux": "^4.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --watch",
     "test": "react-scripts test"
   },
   "eslintConfig": {

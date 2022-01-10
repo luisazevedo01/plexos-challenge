@@ -1,0 +1,10 @@
+const PASSWORD_MANAGER = {
+
+            productInfo: {
+              title: "Create your password",
+              gearHeadCaption:
+                "Save here all your passwords, data or any information or any information, forget paper notes and unprotected notes and unprotected applications.",
+            },
+          },
+}
+

@@ -1,8 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import useForm from "../../utils/useForm";
 import "./PasswordForm.styles.scss";
 
 const PasswordForm = ({ submitForm }) => {
+  const { t } = useTranslation();
   const submitHandler = () => {
     submitForm(values.password);
   };
@@ -10,47 +12,49 @@ const PasswordForm = ({ submitForm }) => {
 
   return (
     <form className="password-form" id="password-form" onSubmit={handleSubmit}>
-      <h1>Create your Password Manager</h1>
-      <p>
-        First, you must create a different password for your electronic
-        belongings. You will not be able to recover your password, so remember
-        it well.
-      </p>
+      <h1>{t("passwordManager.passwordForm.title")}</h1>
+      <p>{t("passwordManager.passwordForm.firstOfAll")}</p>
       <section className="password-section">
-        <div className="form-field">
-          <label>Create your Master Password</label>
+        <div
+          className="form-field"
+          style={{ width: "230px", marginRight: "15px" }}
+        >
+          <label>{t("passwordManager.passwordForm.passLabel")}</label>
           <input
-            className="input"
             minLength="6"
             required
             type="password"
             name="password"
-            placeholder="Your Password"
+            placeholder={t("passwordManager.passwordForm.passPlaceholder")}
             onChange={handleChange}
           />
-          {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
+          {values.password && errors.password && (
+            <p className="form-error">{errors.password}</p>
+          )}
         </div>
-        <div className="form-field">
-          <label>Repeat your Master Password</label>
+        <div className="form-field" style={{ width: "230px" }}>
+          <label>{t("passwordManager.passwordForm.repPassLabel")}</label>
           <input
-            className="input"
+            minLength="6"
             required
             type="password"
             name="passwordConfirmation"
-            placeholder="Repeat your Password"
+            placeholder={t("passwordManager.passwordForm.repPassPlaceholder")}
             onChange={handleChange}
           />
-          {errors.passwordConfirmation && <p>{errors.passwordConfirmation}</p>}
+          {values.passwordConfirmation && errors.passwordConfirmation && (
+            <p className="form-error">{errors.passwordConfirmation}</p>
+          )}
         </div>
       </section>
-      <p>You can also create a helper to remmember your password.</p>
+      <p>{t("passwordManager.passwordForm.helperDescription")}</p>
       <div className="form-field">
-        <label>Create your helper to remind you (optional)</label>
+        <label>{t("passwordManager.passwordForm.helperLabel")}</label>
         <input
-          className="input"
           type="text"
+          maxLength="255"
           name="helper"
-          placeholder="Introduce your helper"
+          placeholder={t("passwordManager.passwordForm.helperPlaceholder")}
           onChange={handleChange}
         />
       </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import StepperBar from "../StepperBar/StepperBar";
 import "./StepperPopup.styles.scss";
 import { IoIosArrowForward } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 const StepperPopup = ({ isLoading, ...props }) => {
   const [show, setShow] = useState(false);
@@ -42,53 +43,82 @@ const StepperPopup = ({ isLoading, ...props }) => {
       className="overlay"
     >
       <div className="popup">
-        <section className="popup-header">
+        <section className="popup_header">
           <StepperBar step={step + 1} steps={childrenArr} />
         </section>
-        <section className="popup-content"> {childrenArr[step]}</section>
-        <section className="popup-footer">
-          {isLastStep() ? (
-            <LastFooter closeHandler={closeHandler} />
-          ) : (
-            <DefaultFooter
-              handleStep={handleStep}
-              step={step}
-              isLoading={isLoading}
-              closeHandler={closeHandler}
-            />
-          )}
-        </section>
+        <section className="popup_content"> {childrenArr[step]}</section>
+        {isLastStep() ? (
+          <LastFooter
+            closeHandler={closeHandler}
+            submitResult={props.submitResult}
+          />
+        ) : (
+          <DefaultFooter
+            handleStep={handleStep}
+            step={step}
+            isLoading={isLoading}
+            closeHandler={closeHandler}
+          />
+        )}
       </div>
     </div>
   );
 };
 
 const DefaultFooter = (props) => {
+  const { t } = useTranslation();
+
   return (
-    <>
+    <section className="popup_footer">
       <button className="secondary-button" onClick={props.closeHandler}>
-        Cancel
+        {t("popupFooter.cancel")}
       </button>
       {props.step === 1 && (
-        <button className="primary-button" form="password-form" type="submit">
-          {props.isLoading ? "Loading..." : "Next >"}
+        <button
+          className="primary-button"
+          form="password-form"
+          type="submit"
+          disabled={props.isLoading}
+        >
+          {props.isLoading ? (
+            <svg className="spinner" viewBox="0 0 50 50">
+              <circle
+                className="path"
+                cx="25"
+                cy="25"
+                r="20"
+                fill="none"
+                strokeWidth="5"
+              ></circle>
+            </svg>
+          ) : (
+            <>
+              <span>{t("popupFooter.next")}</span>
+              <IoIosArrowForward size="0.9rem" style={{ paddingLeft: "5px" }} />
+            </>
+          )}
         </button>
       )}
       {props.step !== 1 && (
         <button className="primary-button" onClick={() => props.handleStep()}>
-          <span>Next</span>
+          <span>{t("popupFooter.next")}</span>
           <IoIosArrowForward size="0.9rem" style={{ paddingLeft: "5px" }} />
         </button>
       )}
-    </>
+    </section>
   );
 };
 
-const LastFooter = ({ closeHandler }) => {
+const LastFooter = ({ closeHandler, submitResult }) => {
   return (
-    <>
-      <button onClick={closeHandler}>Go back to PasswordManager</button>
-    </>
+    <section className="popup_last-footer">
+      <button className="terciary-button" onClick={closeHandler}>
+        <span>
+          {submitResult === "error" ? "Go back to PasswordManager" : "Access"}
+        </span>
+        <IoIosArrowForward size="0.9rem" style={{ paddingLeft: "5px" }} />
+      </button>
+    </section>
   );
 };
 

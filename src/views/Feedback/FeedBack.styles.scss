@@ -1,0 +1,16 @@
+.feedback-title {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+
+  :first-child {
+    margin-right: 15px;
+  }
+  :last-child {
+      margin: 0;
+  }
+}
+
+.feedback-description {
+    margin-left: 50px;
+}

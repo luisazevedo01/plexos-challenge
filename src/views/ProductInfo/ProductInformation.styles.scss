@@ -1,9 +1,34 @@
+@import "../../styles/base.scss";
+
 .product-information {
   display: flex;
   flex-direction: column;
+  margin: 20px;
+
+  :last-child {
+    margin-top: 10px;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
   .illustrated-explanation {
-      display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 20px;
+
+    .product-information_card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 280px;
+      p {
+        font-size: small;
+        font-weight: bold;
+        color: $secondary-color;
+      }
+    }
   }
 }

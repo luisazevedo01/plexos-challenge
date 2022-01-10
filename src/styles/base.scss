@@ -9,7 +9,28 @@ $baby-blue: #d9e1e8;
 
 $button-color: #104456;
 
+h1 {
+  position: relative;
+  font-weight: bolder;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  border-bottom: 3px solid $blue;
+}
+
+h3 {
+  margin: 0;
+}
 .primary-button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,19 +38,48 @@ $button-color: #104456;
   background-color: $secondary-color;
   border-radius: 3px;
   font-size: 0.9rem;
-  padding: 10px;
-  width: 6rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  height: 40px;
+
+  &:active {
+    border: none;
+    opacity: 0.5;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 .secondary-button {
   color: $secondary-color;
   background-color: transparent;
   font-size: 0.9rem;
+  font-weight: bold;
   border: none;
 }
 
-.input {
+.terciary-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: $primary-color;
+  font-weight: bold;
+  font-size: 0.7rem;
+  background-color: transparent;
+}
+
+input {
   padding: 10px;
   border-radius: 3px;
   border: 1px solid lightgray;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border: 1px solid red;
+  }
 }
