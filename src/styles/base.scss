@@ -41,6 +41,7 @@ h3 {
   font-weight: bold;
   padding: 10px 15px;
   height: 40px;
+  min-width: 80px;
 
   &:active {
     border: none;
@@ -79,7 +80,4 @@ input {
     outline: none;
   }
 
-  &:invalid:not(:placeholder-shown) {
-    border: 1px solid red;
-  }
 }

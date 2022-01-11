@@ -1,13 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import PasswordInput from "../../components/PasswordInput/PasswordInput";
 import useForm from "../../utils/useForm";
 import "./PasswordForm.styles.scss";
 
 const PasswordForm = ({ submitForm }) => {
   const { t } = useTranslation();
+
   const submitHandler = () => {
-    submitForm(values.password);
+    submitForm(values["password"]);
   };
+
   const { handleChange, values, errors, handleSubmit } = useForm(submitHandler);
 
   return (
@@ -20,7 +23,7 @@ const PasswordForm = ({ submitForm }) => {
           style={{ width: "230px", marginRight: "15px" }}
         >
           <label>{t("passwordManager.passwordForm.passLabel")}</label>
-          <input
+          <PasswordInput
             minLength="6"
             required
             type="password"
@@ -28,13 +31,13 @@ const PasswordForm = ({ submitForm }) => {
             placeholder={t("passwordManager.passwordForm.passPlaceholder")}
             onChange={handleChange}
           />
-          {values.password && errors.password && (
-            <p className="form-error">{errors.password}</p>
+          {values["password"] && errors["password"] && (
+            <p className="form-error">{errors["password"]}</p>
           )}
         </div>
         <div className="form-field" style={{ width: "230px" }}>
           <label>{t("passwordManager.passwordForm.repPassLabel")}</label>
-          <input
+          <PasswordInput
             minLength="6"
             required
             type="password"
@@ -42,8 +45,8 @@ const PasswordForm = ({ submitForm }) => {
             placeholder={t("passwordManager.passwordForm.repPassPlaceholder")}
             onChange={handleChange}
           />
-          {values.passwordConfirmation && errors.passwordConfirmation && (
-            <p className="form-error">{errors.passwordConfirmation}</p>
+          {values["passwordConfirmation"] && errors["passwordConfirmation"] && (
+            <p className="form-error">{errors["passwordConfirmation"]}</p>
           )}
         </div>
       </section>

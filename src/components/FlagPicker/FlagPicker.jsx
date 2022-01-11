@@ -27,4 +27,4 @@ const FlagPicker = () => {
   );
 };
 
-export default FlagPicker;
+export default React.memo(FlagPicker);

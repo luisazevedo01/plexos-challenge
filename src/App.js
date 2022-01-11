@@ -9,6 +9,7 @@ import { I18nextProvider, useTranslation } from "react-i18next";
 
 export default function App() {
   const { i18n } = useTranslation();
+
   const errorHanldler = (error, errorInfo) => {
     console.log("Error", error, errorInfo);
   };

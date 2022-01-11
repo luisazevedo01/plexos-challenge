@@ -4,11 +4,11 @@ import { BiError } from "react-icons/bi";
 import { FiCheckCircle } from "react-icons/fi";
 import "./FeedBack.styles.scss";
 
-export default function FeedBack({ type }) {
+const FeedBack = ({ type }) => {
   return (
     <Fragment>{type === "success" ? <SuccessView /> : <ErrorView />}</Fragment>
   );
-}
+};
 
 const SuccessView = () => {
   const { t } = useTranslation();
@@ -37,3 +37,5 @@ const ErrorView = () => {
     </Fragment>
   );
 };
+
+export default React.memo(FeedBack);

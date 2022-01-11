@@ -2,12 +2,9 @@ import { useState } from "react";
 import { omit } from "lodash";
 
 const useForm = (submitHandler) => {
-  //Form values
   const [values, setValues] = useState({});
-  //Errors
   const [errors, setErrors] = useState({});
 
-  //Validator to input values
   const validate = (event, name, value) => {
     switch (name) {
       case "password": {
@@ -26,7 +23,7 @@ const useForm = (submitHandler) => {
         break;
       }
       case "passwordConfirmation": {
-        if (values.password !== value) {
+        if (values["password "] !== value) {
           setErrors({
             ...errors,
             passwordConfirmation:

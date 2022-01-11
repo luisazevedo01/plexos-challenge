@@ -39,11 +39,11 @@ export const ENGLISH_TRANSLATION = {
   },
   successFeedback: {
     title: "Your password has been created!",
-    discription: "Lorem ipsum dolor sit amet...",
+    description: "Lorem ipsum dolor sit amet...",
   },
   errorFeedback: {
     title: "An error occurred.",
-    discription: "Lorem ipsum dolor sit amet...",
+    description: "Lorem ipsum dolor sit amet...",
   },
 };
 
@@ -87,7 +87,7 @@ export const SPANISH_TRANSLATION = {
     },
   },
   successFeedback: {
-    title: "¬°Tu Password Manager ya est√° creado!",
+    title: "Tu Password Manager ya está creado!",
     description: "Lorem ipsum dolor sit amet...",
   },
   errorFeedback: {
